@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
 import { FriendsPage } from "../friends/friends";
 import { Geolocation, GeolocationOptions, Geoposition } from '@ionic-native/geolocation';
 
@@ -39,6 +39,7 @@ export class MapPage {
         }
 
         this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        let marker1 = new google.maps.Marker({position: latLng, map: this.map});
 
       }, (err) => {
         console.log(err);
@@ -54,30 +55,30 @@ export class MapPage {
 
     }
 
-  addMarker(){
-
-  let marker = new google.maps.Marker({
-    map: this.map,
-    animation: google.maps.Animation.DROP,
-    position: this.map.getCenter()
-  });
-
-  let content = "<h4>Information!</h4>";
-
-  this.addInfoWindow(marker, content);
-
-}
-addInfoWindow(marker, content){
-
-    let infoWindow = new google.maps.InfoWindow({
-      content: content
-    });
-
-    google.maps.event.addListener(marker, 'click', () => {
-      infoWindow.open(this.map, marker);
-    });
-
-  }
+//   addMarker(){
+//
+//   // let marker = new google.maps.Marker({
+//   //   map: this.map,
+//   //   animation: google.maps.Animation.DROP,
+//   //   position: this.map.getCenter()
+//   // });
+//
+//   let content = "<h4>Information!</h4>";
+//
+//   this.addInfoWindow(marker, content);
+//
+// }
+// addInfoWindow(marker, content){
+//
+//     let infoWindow = new google.maps.InfoWindow({
+//       content: content
+//     });
+//
+//     google.maps.event.addListener(marker, 'click', () => {
+//       infoWindow.open(this.map, marker);
+//     });
+//
+//   }
 
   goTo(page) {
   if(page === 'friends') {

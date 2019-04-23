@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 
 import { FriendsPage } from "../friends/friends";
 import { MapPage } from "../map/map";
-import { LoginPage } from "../login/login";
 import { ForumPage } from "../forum/forum";
 
 @Component({
